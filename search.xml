@@ -13,16 +13,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>idea_use</title>
-    <url>/2020/05/08/idea_use/</url>
-    <content><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在pom.xml添加上述文件然后 mvn clean</p>
-<p>2.</p>
-]]></content>
-  </entry>
-  <entry>
     <title>docker_fastdfs</title>
     <url>/2020/05/08/docker_fastdfs/</url>
     <content><![CDATA[<p>容器镜像加速：</p>
@@ -86,37 +76,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>maven_error</title>
-    <url>/2020/05/08/maven_error/</url>
-    <content><![CDATA[<distributionManagement>
-      <repository>
-        <id>nexus-releases</id>
-        <name>Nexus Release Repository</name>
-        <url>http://182.254.158.159:9090/nexus/content/repositories/thirdparty</url>
-      </repository>
-  </distributionManagement>]]></content>
-  </entry>
-  <entry>
-    <title>rocketmq</title>
-    <url>/2020/05/08/rocketmq/</url>
-    <content><![CDATA[<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1.启动namesrc服务：</span><br><span class="line"></span><br><span class="line">nohup sh bin/mqnamesrv &amp;</span><br><span class="line"></span><br><span class="line">tail -f ~/logs/rocketmqlogs/namesrv.log</span><br><span class="line"></span><br><span class="line">tail -f  /data/mq/rocketmq-all-4.4.0/distribution/target/apache-rocketmq/logs/rocketmqlogs/namesrc.log</span><br></pre></td></tr></table></figure>
-
-<p>2.启动broker：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">nohup sh bin/mqbroker -n localhost:9876 &amp;</span><br><span class="line"></span><br><span class="line"> tail -f ~/logs/rocketmqlogs/broker.log</span><br></pre></td></tr></table></figure>
-
-<p>3.生产消费messsage：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">export NAMESRV_ADDR=localhost:9876</span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer</span><br></pre></td></tr></table></figure>
-
-<p>4.关闭服务：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sh bin&#x2F;mqshutdown broker</span><br><span class="line"></span><br><span class="line">sh bin&#x2F;mqshutdown namesrv</span><br></pre></td></tr></table></figure>
-
-
-
-<p>5.问题：</p>
-<p>Broker 禁止自动创建 Topic，且用户没有通过手工方式创建 Topic：<br>可以在 Rocket_HOME/distribution/target/apache-rocketmq 下执行 “ sh bin/mqbroker -m “ 来查看 broker 的配置参数<br>所示，autoCreateTopicEnable=true 证明是没有问题的</p>
-]]></content>
-  </entry>
-  <entry>
     <title>maven_aliyun</title>
     <url>/2020/05/08/maven_aliyun/</url>
     <content><![CDATA[ <!-- 阿里云中央仓库 -->
@@ -128,21 +87,25 @@
 &lt;/mirror&gt;</code></pre>]]></content>
   </entry>
   <entry>
-    <title>springboot_动态配置</title>
-    <url>/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>1.使用@Component注解注册成组件：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注册成一个组件</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigTwo</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;test.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>idea_use</title>
+    <url>/2020/05/08/idea_use/</url>
+    <content><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>2.使用@ConfigurationProperties注解和启动类上@EnableConfigurationProperties({ConfigBean.class}) 这个还是使用spring的配置文件里的</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;test&quot;)</span><br><span class="line">public class ConfigOne &#123;</span><br><span class="line">	</span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191211171354555.png" alt="image-20191211171354555"></p>
-<p>3.使用@EnableConfigurationProperties({TestConfigBean.class}) 和</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:person.properties"</span>)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigThree</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigThree<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">@<span class="title">RestController</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">Demo3Application2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigTwo configtwo;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigOne configone;</span></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ConfigThree configthree;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Demo3Application2<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	</span></span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configone.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configtwo.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> configthree.getName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>在pom.xml添加上述文件然后 mvn clean</p>
+<p>2.</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>maven_error</title>
+    <url>/2020/05/08/maven_error/</url>
+    <content><![CDATA[<distributionManagement>
+      <repository>
+        <id>nexus-releases</id>
+        <name>Nexus Release Repository</name>
+        <url>http://182.254.158.159:9090/nexus/content/repositories/thirdparty</url>
+      </repository>
+  </distributionManagement>]]></content>
   </entry>
   <entry>
     <title>mongodb安装</title>
@@ -178,6 +141,43 @@
 
 
 
+
+]]></content>
+  </entry>
+  <entry>
+    <title>rocketmq</title>
+    <url>/2020/05/08/rocketmq/</url>
+    <content><![CDATA[<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1.启动namesrc服务：</span><br><span class="line"></span><br><span class="line">nohup sh bin/mqnamesrv &amp;</span><br><span class="line"></span><br><span class="line">tail -f ~/logs/rocketmqlogs/namesrv.log</span><br><span class="line"></span><br><span class="line">tail -f  /data/mq/rocketmq-all-4.4.0/distribution/target/apache-rocketmq/logs/rocketmqlogs/namesrc.log</span><br></pre></td></tr></table></figure>
+
+<p>2.启动broker：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">nohup sh bin/mqbroker -n localhost:9876 &amp;</span><br><span class="line"></span><br><span class="line"> tail -f ~/logs/rocketmqlogs/broker.log</span><br></pre></td></tr></table></figure>
+
+<p>3.生产消费messsage：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">export NAMESRV_ADDR=localhost:9876</span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer</span><br></pre></td></tr></table></figure>
+
+<p>4.关闭服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sh bin&#x2F;mqshutdown broker</span><br><span class="line"></span><br><span class="line">sh bin&#x2F;mqshutdown namesrv</span><br></pre></td></tr></table></figure>
+
+
+
+<p>5.问题：</p>
+<p>Broker 禁止自动创建 Topic，且用户没有通过手工方式创建 Topic：<br>可以在 Rocket_HOME/distribution/target/apache-rocketmq 下执行 “ sh bin/mqbroker -m “ 来查看 broker 的配置参数<br>所示，autoCreateTopicEnable=true 证明是没有问题的</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>springboot_动态配置</title>
+    <url>/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>1.使用@Component注解注册成组件：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注册成一个组件</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigTwo</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;test.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.使用@ConfigurationProperties注解和启动类上@EnableConfigurationProperties({ConfigBean.class}) 这个还是使用spring的配置文件里的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;test&quot;)</span><br><span class="line">public class ConfigOne &#123;</span><br><span class="line">	</span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191211171354555.png" alt="image-20191211171354555"></p>
+<p>3.使用@EnableConfigurationProperties({TestConfigBean.class}) 和</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:person.properties"</span>)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigThree</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigThree<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">@<span class="title">RestController</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">Demo3Application2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigTwo configtwo;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigOne configone;</span></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ConfigThree configthree;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Demo3Application2<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	</span></span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configone.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configtwo.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> configthree.getName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
   </entry>
