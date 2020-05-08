@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>victorydeng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="my blog word">
+<meta property="og:type" content="website">
+<meta property="og:title" content="victorydeng">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="victorydeng">
+<meta property="og:description" content="my blog word">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="victorydeng">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="victorydeng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">victorydeng</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">victorydeng</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-tomcat_docbase" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/tomcat_docbase/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.717Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/tomcat_docbase/">tomcat_docbase</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <Context path="" docBase="/data/soft/tomcat/webapps/jenkins" debug="0" reloadable="true" crossContext="true"/>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/tomcat_docbase/" data-id="ck9xk010d0007v8yl6o8gdwd5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot_动态配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.716Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/">springboot_动态配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.使用@Component注解注册成组件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册成一个组件</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigTwo</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;test.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.使用@ConfigurationProperties注解和启动类上@EnableConfigurationProperties({ConfigBean.class}) 这个还是使用spring的配置文件里的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;test&quot;)</span><br><span class="line">public class ConfigOne &#123;</span><br><span class="line">	</span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191211171354555.png" alt="image-20191211171354555"></p>
+<p>3.使用@EnableConfigurationProperties({TestConfigBean.class}) 和</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:person.properties"</span>)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigThree</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigThree<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">@<span class="title">RestController</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">Demo3Application2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigTwo configtwo;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigOne configone;</span></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ConfigThree configthree;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Demo3Application2<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	</span></span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configone.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configtwo.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> configthree.getName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/" data-id="ck9xk010g000av8yl82a157xr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-rocketmq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/rocketmq/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.715Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/rocketmq/">rocketmq</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.启动namesrc服务：</span><br><span class="line"></span><br><span class="line">nohup sh bin/mqnamesrv &amp;</span><br><span class="line"></span><br><span class="line">tail -f ~/logs/rocketmqlogs/namesrv.log</span><br><span class="line"></span><br><span class="line">tail -f  /data/mq/rocketmq-all-4.4.0/distribution/target/apache-rocketmq/logs/rocketmqlogs/namesrc.log</span><br></pre></td></tr></table></figure>
+
+<p>2.启动broker：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup sh bin/mqbroker -n localhost:9876 &amp;</span><br><span class="line"></span><br><span class="line"> tail -f ~/logs/rocketmqlogs/broker.log</span><br></pre></td></tr></table></figure>
+
+<p>3.生产消费messsage：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NAMESRV_ADDR=localhost:9876</span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer</span><br></pre></td></tr></table></figure>
+
+<p>4.关闭服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh bin&#x2F;mqshutdown broker</span><br><span class="line"></span><br><span class="line">sh bin&#x2F;mqshutdown namesrv</span><br></pre></td></tr></table></figure>
+
+
+
+<p>5.问题：</p>
+<p>Broker 禁止自动创建 Topic，且用户没有通过手工方式创建 Topic：<br>可以在 Rocket_HOME/distribution/target/apache-rocketmq 下执行 “ sh bin/mqbroker -m “ 来查看 broker 的配置参数<br>所示，autoCreateTopicEnable=true 证明是没有问题的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/rocketmq/" data-id="ck9xk010f0009v8yldhax744t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/mongodb%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.714Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/mongodb%E5%AE%89%E8%A3%85/">mongodb安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.mongodb安装：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Developer_tools\MongoDB\bin\mongod.exe --config "D:\Developer_tools\MongoDB\config\mongod.cfg" --install</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、代码换行   // enter</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/mongodb%E5%AE%89%E8%A3%85/" data-id="ck9xk010b0005v8ylfzb2f9ed" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven_error" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/maven_error/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.712Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/maven_error/">maven_error</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <distributionManagement>
+      <repository>
+        <id>nexus-releases</id>
+        <name>Nexus Release Repository</name>
+        <url>http://182.254.158.159:9090/nexus/content/repositories/thirdparty</url>
+      </repository>
+  </distributionManagement>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/maven_error/" data-id="ck9xk010d0006v8yl3wk5514z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/maven/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.711Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/maven/">maven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+         <!-- 阿里云中央仓库 -->
+<pre><code>&lt;mirror&gt;
+    &lt;id&gt;nexus-aliyun&lt;/id&gt;
+    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;name&gt;Nexus aliyun&lt;/name&gt;
+    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+&lt;/mirror&gt;</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/maven/" data-id="ck9xk010a0004v8ylebob78h9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-idea_use" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/idea_use/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.710Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/idea_use/">idea_use</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在pom.xml添加上述文件然后 mvn clean</p>
+<p>2.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/idea_use/" data-id="ck9xk010a0003v8yl87fcanj1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-docker_mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/docker_mysql/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.709Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/docker_mysql/">docker_mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PK     ! k�^hs  �   �[Content_Types].xml ��(�                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        �T[K�0<del>�%��f� “m���Q���5,MBN6��i��Z�����^�w˗��]��-xT�dl�LX��R�U�ޖO�-�0#��2�d���”]�<code>D�3V���8Ǣ�Z</code>b�RZ_�@�</del>ŝ(�b|6��� &amp;ġ�<code>y� ���=��u��]�w�5T�iU�@B���o$�-KU��Ŧ&amp;��!��N�W��_!2������JB�&gt;&lt;���N�@��N�0JDvՠ�L�a�GS���@�=�z�x���Lh�]������3��~�n���Siڐ�B���P��:�T���i�;�3��6���&quot;oo��N�q�ʠG��?�1~W�&quot;�c&#39;
+��� {���io���  �� PK     ! �U0#�   L   �_rels/.rels ��(�                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ���N�0��H�C���nH���LH�!T�$����$@����Jc�����?[���iTb/Nú(A�3b{�jx��V�b&quot;gi��aW��l_x���b���������#b4O��r��0Q�ahѓ�eܔ�=��P-&lt;��j{�&gt;�&lt;���4Mox/�}b�N�@�;�v�Cf��ۨ�B�I�����&quot;c�&amp;�\O���8q&quot;K��H��&lt;ߊs@��.�h����&lt;⧄�Md�a��T_   �� PK     ! ��D��   G   xl/_rels/workbook.xml.rels �(�                                                                                                                                                                                                                                                                 ���j�0���{��Ӗ&quot;�R
+������!�$���}�n���\�E3�����^}P��Y
+Y��&quot;[���������    ����%
+#1����z#���g],khE��˖É�d�va0ehЛ�d�&lt;M1�����S*
+�Pm@G���vuݕ������\��ON�I45�!�0_1N�M�/��7�ɗ</code>��dK0ׄa�س��<del>�R��5�%��</del>�’��9� ��_|  �� PK     ! F1NNg  �     xl/workbook.xml�R�N�0�#���4����TB��U�г�7�Uǎl�i�����”8p��x&lt;;;�|ql9�u��f��ХRos��~����y�WFCNO�袸��w��&gt;���.����,I\YC������2��[�M\k�W�F%,M’Iå�g������*Y£)�<br>h���G�����ż�</p>
+<blockquote>
+<p>�޶��A�GE���?    �A�t����<code>���^�p;N�4).K�,AUve偗&#39;L��+�ƅ�y��c��6��!�s�2�%Ǎ��t9ŨO}=Ŧ��F
+_������#�MFi�N��c�8$�D�m�B�h1bK\k;�XإȂ�/6�bc}a�?��+6��0���h�����M0Ʋ8=�O�  �� PK     ! �&#39;�1�  T     xl/theme/theme1.xml�YMoE�#�F{om&#39;vGu�رh�F�[��x=ޝzvg53N�j�HH��zAB\8 �R+�D�5)E�H��3��މ�$)��w�y�?���+�&quot;�����-�v��!�|D����.�{H*�0�1iy3&quot;�+��so��D},7p��J6*��2�yBbx7�&quot;�
+EP    ||#VY�V�*���bۛ�1�    z��O/�z�mfܻD�J�����M�Mj!g��:��偠?�{�CK/Z^�|����
+�H��ZB[��OJ��&amp;+F����Z�޼���7 �q�n�ӭ�� �&gt;Xju)���k�gd�.��Tպ�/�_]й�n��T�Ԁ���~��V�Zq�d�|����9x���|�Rs���
+(d4�,�u@{��{s�S
+_�z5��Q�
+yvic�e��\� ��+#5K����
+�Z � ���.�raI�B�4Q-��CI���~���gO��g���?=���уG�����E�W_���ߞ|���g�xY����G���4����}��ţ�_~��%�ЈHt��}�m�1��d(�F11u(p�KXwU� o�0+õ����G�����k?SEK$_#��9ksQ�kZV�Ãi��&quot;n�2�;��N�YR:���Qs��X��D!��O)����_w�/��c��P�ƴ�%:tiN�C#�ˬ�f���ۨ�Y�����EBA</code>V���0ǍW�Tᨌ� G����X�eJ�g�/�RA��8ꎈ�e47�[�5��4�l�H�褌�u�y��’�GI�O㰈}ON E1�����<br>��/<br>�mJ�p��n��Qi� ��T�XB�v�oD�?kƌB7�9���-ؚ�Jb�X^��6�m&lt;�������������.���v�y��ޫ�;�)9Z:$�)c}5c�4s���bԃEMgN�$?4%!|M���64Hp�Ua?�    ��5O3    d�:�(��vf����Ü��ɰ���H�v��.����h��1[N<code>Ο��U���V/�L��7V�J�ZZͨfZ�#-7b�h,�ބ)��^^�3�
+g��H��n�YXL�3D2�#��H۽��    R�+�2 r�$F��w��
+Қ��_�v� �՗�ˢ�W��e�&lt;J�n��#����bt�򚍕��|���1k�k�@ԥ�0�r�W¦���l�|�ff�[5���~_0����j�Ц�y�� ��$��J�z^�L-V�!�1-��nh�xL|UvaE��&gt;���O�pt��l*�1�_�*�3�n&#39;LG�p���m^��9-�����u̒��V�hV�n�8��&lt;��Ju7Ɲ�S��dJ1��g����VG:&gt;\�
+�t��&lt;.Tȡ%!�{�; [�:^CR����/ȁ�ok��0e
+�&gt;�O$(�G*��A[2�w�Z�wY�,ed2���L��Cr@�@��5��{(�T7�$mw&lt;��紂��r�����|�5�wO&gt;���(���&amp;��bɮj�
+y��
+�/�cV=�
+V�
+�iٿ�
+g�jm�Z�x��)Q\��(�K����G�ψIc���&gt;�V�5hf�6�����t���C��M&amp;�ʺ6��ײ���&#39;�\�1gk�N�3:;�\qN-���S;��kK]
+�=^��4�2&amp;0�g��O|x�
+W�S��I&amp;�YI</code>=�����DC��   �� PK     ! 4�    ��   B  #   xl/worksheets/_rels/sheet3.xml.rels���j�0D����{$’�R��\B �6� U^�”�Jh�����X�B��c�0��{����,�u<br>ɧ&gt;R��<del>��^@�8�ݔ-&lt;���m7�+NNj�ǘYU��Q$�a?��X��Tɐ���Lv���C�&lt;����©���r���n�\��w�a����H�Ǆ�%�<code>yC�z��ڕ�bA�5[�&#39;�    Lך���  �� PK     ! �,�   B  #   xl/worksheets/_rels/sheet2.xml.rels���j�0D����{$;�P�%_J!�&amp;� E^ۢ�Jh�%���؄B��c�0]Y���c&quot;�n@!�4D�,|�&gt;���X&lt;
+~I���л�K����Z�9fV�Bla�o�p�q��SF�dLe�Rc�L���OhvM�7�ܝS�0��N�\����8ƀ�)��H�τ�%�</code>9�H=�U�˄bA�G��w�    ����sw  �� PK     ! ;m2K�   B  #   xl/worksheets/_rels/sheet1.xml.rels�����0E��Cx{�օCS7”�U�b��ۗ���{�e���p��6��&lt;�f�,Ժ��ch��{�-�A�8��    -&lt;�a�.��NNJ�ǐX��Q$��</del>�ٱ�    ��&gt;��I�y0���Ь�jm�_�/N��,�}W�:=RY��}&lt;n���H�τI9�<code>&gt;�H9�E��bA�w��k}�m����      �� PK     ! b��Ce  H     xl/worksheets/sheet2.xml��MO�0��H���wڎ��iBL; !��u�hm9c���݆��p�����7��~u��D��|�$�����:�����5�(֗�%�9l1����d�!^�Q�|̡    �4�E���    �Z��;+r���hˡ�k��,�L;�&lt;�    ����8�bݡ�=������ƅ�i��2�Uw#Hg�a��M�u6���U_X�9d�����Š�M��]��L�tu#j�8���ϭX�F�WhCE^z��l������/�-��G�b��,��{�p
+C���Pw��ն,�N&quot;9��:�</code>����0�N���![‘<code>��tW�΃�A�o�&quot;~gx�T/�����̾  �� PK     ! b��Ce  H     xl/worksheets/sheet3.xml��MO�0��H���wڎ��iBL; !��u�hm9c���݆��p�����7��~u��D��|�$�����:�����5�(֗�%�9l1����d�!^�Q�|̡    �4�E���    �Z��;+r���hˡ�k��,�L;�&lt;�    ����8�bݡ�=������ƅ�i��2�Uw#Hg�a��M�u6���U_X�9d�����Š�M��]��L�tu#j�8���ϭX�F�WhCE^z��l������/�-��G�b��,��{�p
+C���Pw��ն,�N&quot;9��:�</code>����0�N���![‘<code>��tW�΃�A�o�&quot;~gx�T/�����̾  �� PK     ! �����  #  
+   xl/styles.xml�S͊�@��C�w7�QW��m@Pv�=I%i��]��&lt;��&lt;�ŷq�ǰ:�If.²xI����﫟�n������&lt;��p���4M�?�w/�p�Q�J(k �#x~[&lt;�yܵ �(��9o��I����W�C7�uZ ]��΁�|�*�n6׉��&quot;��A�J���v6��B���&#39;EVZeCJOB&amp;�����o�}^��R�Ѻ��Z�&lt;Ɍ�^�
+�I����.��&quot;jY�o����&lt;�I�.k&#39;C�u��с�x?vT��AD��_��w�Ęn_�$a���h𧮧��h*25R�N6m����{��V��h��</code>r���S�Rwa9&gt;�����^�4��rNk�}�T�c�x(2�dc48�e؅���5Ԥ��/�?��<br>�c�Y��/YX��?�����/$��K��D���%�rV���M�”�=������YA-z���2�+� ������Q-N)r���a����)��.�  �� PK     ! ;p_n  X     xl/worksheets/sheet1.xml��OO�0��H|��wڎi���!�4�    1���n�Ƒ�1ا���ą[�Ŀ�����gך����0J20�<em>��sx}Y�]��b}i[��F����̶��A�shD�4Mc�<code>gcB��Tĝ-�Nc</code>��0Ե�y�]��u��)��AU�<br>\P������Z���ƅ�Y�t�7d�nG��g���m&lt;Z���X��L�jM��|�V֏�f���’6%Vv��3m��Ս(d�L~�V�B�ى+t�”/=X��+h��������G˵�ѴX)1K.��&gt;���Н�Y�u?U��Ƙ%cP%����]�l�    6 ��Nů�;<br>r�/�@,l��i��ӻ�v\�X�5q��S/�P��b�<br>  �� PK     ! ˌJG   l  ’   xl/printerSettings/printerSettings3.binb�0�0��a���������    6-�bd8’|RJ�0���B�H�^���+ �������8=�    �� PK     ! ˌJG   l  ’   xl/printerSettings/printerSettings2.binb�0�0��a���������    6-�bd8’|RJ�0���B�H�^���+ �������8=�    �� PK     ! ˌJG   l  ’   xl/printerSettings/printerSettings1.binb�0�0��a���������    6-�bd8’|RJ�0���B�H�^���+ �������8=�    �� PK     ! �.��&gt;  \    docProps/core.xml �� (�                                                                                                                                                                                                                                                         ��QK�0���C�{�fe���@eO’�o!��M����޴�j{�)䞓�{I�:�::�u��”I�”мRWz߮�{9ϴ`u��@8�</em>oorn(o,��ƀ�\H�Qn<br>���P�߃b.    �]c��j+l�f�E��a�    ����|B�[ �1Ԡ@{�IB�׃U��A�9���    3���ق���&gt;:9۶M�l����yyF���w�����[<code>���A�ptt��Y��a͜߄u�$�Ǯ���C�&quot;
+Y���|dO��5*�u��CL�-!tA�|�-/���Ƃ:5�q9#�c���P�  �� PK     ! H&lt;6�  F   docProps/app.xml �(�                                                                                                                                                                                                                                                                 ���j1�â{��J1Z��$��R�����WT+    i��}�^z(�
+z��4����.��i{�N3�?ߌ$q�ml�BLƻ�M&#39;9��i_�)�����
+�*W*�l�]ɳWb}��RF.�FsΓ��QiB�#��QHi�p_UFõ�O
+8�&lt;�a��J(����
+���״���K�]</code>)ކ`�VHS��FG�|���V�|,<br>�[�<del>�w2|���Vd,+e</del>,�;P�Җ��$E��4��%��6c٣J���U�(��յ<br>Iې0���_�����7�Ij}8n��R^�<br>�6v    ��k�҇j�”��b�3�Ϊ���@�K�K�x�<del>O���hᛠ܎�C�θ��&gt;���B���iQ�j��k��ǂ���Gۙ,j�6P�{���0|9�Mr:�C��?</del> �  �� PK-      ! k�^hs  �                   [Content_Types].xmlPK-      ! �U0#�   L               �  _rels/.relsPK-      ! ��D��   G               o  xl/_rels/workbook.xml.relsPK-      ! F1NNg  �               �  xl/workbook.xmlPK-      ! �’�1�  T               3<br>  xl/theme/theme1.xmlPK-      ! 4�    ��   B  #             �  xl/worksheets/_rels/sheet3.xml.relsPK-      ! �,�   B  #             �  xl/worksheets/_rels/sheet2.xml.relsPK-      ! ;m2K�   B  #             �  xl/worksheets/_rels/sheet1.xml.relsPK-      ! b��Ce  H               �  xl/worksheets/sheet2.xmlPK-      ! b��Ce  H               �  xl/worksheets/sheet3.xmlPK-      ! �����  #  <br>             *  xl/styles.xmlPK-      ! ;p_n  X               7  xl/worksheets/sheet1.xmlPK-      ! ˌJG   l  ’             �  xl/printerSettings/printerSettings3.binPK-      ! ˌJG   l  ’             g  xl/printerSettings/printerSettings2.binPK-      ! ˌJG   l  ’             �  xl/printerSettings/printerSettings1.binPK-      ! �.��&gt;  \                 docProps/core.xmlPK-      ! H&lt;6�  F               �  docProps/app.xmlPK      �  �!    </p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/docker_mysql/" data-id="ck9xk01080002v8yl8b33ce13" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/centos7/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.708Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/centos7/">centos7</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Centos7 相关命令</p>
+<p>1.停止防火墙</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p>2.wget 未找到</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/centos7/" data-id="ck9xk01010000v8ylea184uew" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-正则语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/08/%E6%AD%A3%E5%88%99%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time datetime="2020-05-08T01:50:41.706Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/%E6%AD%A3%E5%88%99%E8%AF%AD%E6%B3%95/">正则语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">正则表达式的书写语法</span><br><span class="line"></span><br><span class="line">1、^  表示匹配字符串的开始位置  (例外  用在中括号中[ ] 时,可以理解为取反,表示不匹配括号中字符串)</span><br><span class="line"></span><br><span class="line">2、$  表示匹配字符串的结束位置</span><br><span class="line"></span><br><span class="line">3、*  表示匹配 零次到多次</span><br><span class="line"></span><br><span class="line">4、+  表示匹配 一次到多次 (至少有一次)</span><br><span class="line"></span><br><span class="line">5、?  表示匹配零次或一次</span><br><span class="line"></span><br><span class="line">6、.  表示匹配单个字符 </span><br><span class="line"></span><br><span class="line">7、|  表示为或者,两项中取一项</span><br><span class="line"></span><br><span class="line">8、(  ) 小括号表示匹配括号中全部字符</span><br><span class="line"></span><br><span class="line">9、[  ] 中括号表示匹配括号中一个字符 范围描述 如[0-9 a-z A-Z]</span><br><span class="line"></span><br><span class="line">10、&#123;  &#125; 大括号用于限定匹配次数  如 &#123;n&#125;表示匹配n个字符  &#123;n,&#125;表示至少匹配n个字符  &#123;n,m&#125;表示至少n,最多m</span><br><span class="line"></span><br><span class="line">11、\  转义字符 如上基本符号匹配都需要转义字符   如 *  表示匹配*号</span><br><span class="line"></span><br><span class="line">12、\w 表示英文字母和数字  \W  非字母和数字</span><br><span class="line"></span><br><span class="line">13、\d  表示数字   \D  非数字</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/08/%E6%AD%A3%E5%88%99%E8%AF%AD%E6%B3%95/" data-id="ck9xk010e0008v8yl9l9nc9z4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/08/tomcat_docbase/">tomcat_docbase</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/">springboot_动态配置</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/08/rocketmq/">rocketmq</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/08/mongodb%E5%AE%89%E8%A3%85/">mongodb安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/08/maven_error/">maven_error</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 victorydeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
