@@ -179,6 +179,21 @@
 				
 		 
 				
+				
+<div class="social-search">
+	<input id="local-search-input" />
+	<button class="DearMsDanIconFont icon-sousuo"></button>
+</div>
+<div id="local-search-result"></div>
+<script>
+ var search_path = "search.xml";
+	 if (search_path.length == 0) {
+		search_path = "/search.xml";
+	 }
+	 var path = "/" + search_path;
+	 searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+				
 		
 				<ul class="nav">	
 					<li>
@@ -522,7 +537,7 @@ function timeElapse(date){
 	var textAnimate = eval(Jscex.compile("async", function () 
 		{
 		    var together = new Date();
-		    together.setFullYear(2020,5, 5); 			//时间年月日，注意月份是0-11
+		    together.setFullYear(2020,4, 5); 			//时间年月日，注意月份是0-11
 		    together.setHours(0);						//小时	
 		    together.setMinutes(0);						//分钟
 		    together.setSeconds(0);						//秒前一位
