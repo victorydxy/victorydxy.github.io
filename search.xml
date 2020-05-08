@@ -23,6 +23,69 @@
 ]]></content>
   </entry>
   <entry>
+    <title>docker_fastdfs</title>
+    <url>/2020/05/08/docker_fastdfs/</url>
+    <content><![CDATA[<p>容器镜像加速：</p>
+<p>sudo mkdir -p /etc/docker </p>
+<p>sudo tee /etc/docker/daemon.json<br> &lt;&lt;-‘EOF’ </p>
+<p>{ “registry-mirrors”: [“<a href="https://ij6khljp.mirror.aliyuncs.com/" target="_blank" rel="noopener">https://ij6khljp.mirror.aliyuncs.com</a>“] } </p>
+<p>EOF</p>
+<p> sudo systemctl daemon-reload </p>
+<p>sudo systemctl restart docker</p>
+<p>centos 下载docker：</p>
+<p>yum -y install docker-io</p>
+<p>centos6.5运行命令yum install docker.io，发生错误</p>
+<p>No package docker available</p>
+<p>yum没有找到docker包，更新epel第三方软件库，运行命令：</p>
+<p>sudo yum install epel-release</p>
+<p>之后运行：</p>
+<p>sudo yum install docker-io</p>
+<p>之后就可以愉快地安装了。</p>
+<p>docker run -it –name samba -p 139:139 -p 445:445 -v /file/sparesManage/:/file/sparesManage/ -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “root;/file/sparesManage/;yes;no;no;all;none”</p>
+<p> TRACKER_SERVER ： tracker服务端ip</p>
+<p> TR_NGX_PORT ： tracker服务端上运行的nginx端口</p>
+<p> ST_NGX_PORT ： storage服务端上运行的nginx端口</p>
+<p> 62e919b7efc1 : 镜像id</p>
+<p> t1 ： tracker服务端名称</p>
+<p>拉取镜像：</p>
+<p>docker image pull delron/fastdfs</p>
+<p>查看镜像：</p>
+<p>[root@iZh3cshm0xz7wjZ ~]# docker images</p>
+<p>REPOSITORY           TAG         IMAGE ID      CREATED       SIZE</p>
+<p>docker.io/morunchang/fastdfs  latest       a729ac95698a    18 months ago    460.1 MB </p>
+<p>3.运行tracker：</p>
+<p> docker run -itd –name tracker –net=host  -v /data/fastdfs/tracker_data:/fastdfs/tracker/data 0109554e5a05 sh tracker.sh</p>
+<p>4.运行storage：</p>
+<p>docker run -d –name storage -v /data/fastdfs/storage_data:/data/fast_data/data –net=host -e TRACKER_IP=10.134.82.116:22122 -e GROUP_NAME=group1 0109554e5a05 sh storage.sh</p>
+<p>Nginx : /etc/nginx/conf/nginx.conf</p>
+<p>fastdf配置文件位置：/etc/fdfs</p>
+<p>使用nginx显示原来的文件名字：</p>
+<p>修改Nginx配置文件:</p>
+<p>location / GroupDFS1/M00 {</p>
+<p>​      root /home/yuqing/FastDFS/data;</p>
+<p>​        if ($request_filename ~* ^.*?.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){</p>
+<p>​            add_header Content-Disposition: ‘attachment;’;</p>
+<p>​        }</p>
+<p>​        if ($arg_attname ~ “^(.*)”) {</p>
+<p>​            add_header Content-Disposition “attachment;filename=$arg_attname”;</p>
+<p>​        }</p>
+<p>​      ngx_fastdfs_module;</p>
+<p>​    }</p>
+<p>SMB:</p>
+<p>/file/sparesManage</p>
+<p>docker run -it –name samba -p 139:139 -p 445:445 -v /file/sparesManage:/mount -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “www;/mount/;yes;no;no;all;none”</p>
+<p>docker run –name samba -it -p 139:139 -p 445:445 -v /file/sparesManage:/file/sparesManage   -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “www;/mount/;yes;no;no;all;none”</p>
+<p>docker run -itd –name nginx -p 8088:80 -v /file/sparesManage:/file/sparesManage nginx </p>
+<p>apt-get install procps </p>
+<p>VI:</p>
+<p>apt-get update</p>
+<p>apt-get install vim</p>
+<p>Ps:</p>
+<p>apt-get install procps</p>
+<p>cd /etc/nginx/conf.d/ </p>
+]]></content>
+  </entry>
+  <entry>
     <title>maven_error</title>
     <url>/2020/05/08/maven_error/</url>
     <content><![CDATA[<distributionManagement>
@@ -32,28 +95,6 @@
         <url>http://182.254.158.159:9090/nexus/content/repositories/thirdparty</url>
       </repository>
   </distributionManagement>]]></content>
-  </entry>
-  <entry>
-    <title>maven_aliyun</title>
-    <url>/2020/05/08/maven_aliyun/</url>
-    <content><![CDATA[ <!-- 阿里云中央仓库 -->
-<pre><code>&lt;mirror&gt;
-    &lt;id&gt;nexus-aliyun&lt;/id&gt;
-    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-    &lt;name&gt;Nexus aliyun&lt;/name&gt;
-    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
-&lt;/mirror&gt;</code></pre>]]></content>
-  </entry>
-  <entry>
-    <title>mongodb安装</title>
-    <url>/2020/05/08/mongodb%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>1.mongodb安装：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">D:\Developer_tools\MongoDB\bin\mongod.exe --config "D:\Developer_tools\MongoDB\config\mongod.cfg" --install</span><br></pre></td></tr></table></figure>
-
-
-
-<p>2、代码换行   // enter</p>
-]]></content>
   </entry>
   <entry>
     <title>rocketmq</title>
@@ -76,6 +117,17 @@
 ]]></content>
   </entry>
   <entry>
+    <title>maven_aliyun</title>
+    <url>/2020/05/08/maven_aliyun/</url>
+    <content><![CDATA[ <!-- 阿里云中央仓库 -->
+<pre><code>&lt;mirror&gt;
+    &lt;id&gt;nexus-aliyun&lt;/id&gt;
+    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;name&gt;Nexus aliyun&lt;/name&gt;
+    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+&lt;/mirror&gt;</code></pre>]]></content>
+  </entry>
+  <entry>
     <title>springboot_动态配置</title>
     <url>/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>1.使用@Component注解注册成组件：</p>
@@ -90,6 +142,17 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigThree<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">@<span class="title">RestController</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">Demo3Application2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigTwo configtwo;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigOne configone;</span></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ConfigThree configthree;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Demo3Application2<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	</span></span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configone.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configtwo.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> configthree.getName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+  </entry>
+  <entry>
+    <title>mongodb安装</title>
+    <url>/2020/05/08/mongodb%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>1.mongodb安装：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">D:\Developer_tools\MongoDB\bin\mongod.exe --config "D:\Developer_tools\MongoDB\config\mongod.cfg" --install</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、代码换行   // enter</p>
 ]]></content>
   </entry>
   <entry>
