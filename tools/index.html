@@ -5,7 +5,7 @@
   
 
 <head>
-	<title>rocketmq -  victorydeng</title>
+	<title>tools -  victorydeng</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="description" content="my blog word">
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -374,10 +374,10 @@
 <div class="dearmsdan">
 	<div class="dearmsdan-post" id="dearmsdanPost">
 		<div class="dearmsdan-title">
-			<h1>rocketmq</h1>
+			<h1>tools</h1>
 		</div>
 	  <div id="post" class="dearmsdan-post-Statistics">
-            <a>2020年05月08日</a>
+            <a>2020年05月09日</a>
 		
 		
 	  </div>
@@ -428,22 +428,7 @@
 	<script src="/resources/toc/jquery.pageslide.js"></script>
 		<div>
 			  <article>
-				<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.启动namesrc服务：</span><br><span class="line"></span><br><span class="line">nohup sh bin/mqnamesrv &amp;</span><br><span class="line"></span><br><span class="line">tail -f ~/logs/rocketmqlogs/namesrv.log</span><br><span class="line"></span><br><span class="line">tail -f  /data/mq/rocketmq-all-4.4.0/distribution/target/apache-rocketmq/logs/rocketmqlogs/namesrc.log</span><br></pre></td></tr></table></figure>
-
-<p>2.启动broker：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup sh bin/mqbroker -n localhost:9876 &amp;</span><br><span class="line"></span><br><span class="line"> tail -f ~/logs/rocketmqlogs/broker.log</span><br></pre></td></tr></table></figure>
-
-<p>3.生产消费messsage：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NAMESRV_ADDR=localhost:9876</span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer</span><br></pre></td></tr></table></figure>
-
-<p>4.关闭服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh bin&#x2F;mqshutdown broker</span><br><span class="line"></span><br><span class="line">sh bin&#x2F;mqshutdown namesrv</span><br></pre></td></tr></table></figure>
-
-
-
-<p>5.问题：</p>
-<p>Broker 禁止自动创建 Topic，且用户没有通过手工方式创建 Topic：<br>可以在 Rocket_HOME/distribution/target/apache-rocketmq 下执行 “ sh bin/mqbroker -m “ 来查看 broker 的配置参数<br>所示，autoCreateTopicEnable=true 证明是没有问题的</p>
-
+				
 			  </article>
 		</div>
 		
@@ -462,7 +447,7 @@
         
 	
 <strong>本文链接：</strong>
-	<a href="https://victorydxy.github.io/2020/05/08/rocketmq/" title="https:&#x2F;&#x2F;victorydxy.github.io&#x2F;2020&#x2F;05&#x2F;08&#x2F;rocketmq&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;victorydxy.github.io&#x2F;2020&#x2F;05&#x2F;08&#x2F;rocketmq&#x2F;</a><br>
+	<a href="https://victorydxy.github.io/tools/index.html" title="https:&#x2F;&#x2F;victorydxy.github.io&#x2F;tools&#x2F;index.html" target="_blank" rel="noopener">https:&#x2F;&#x2F;victorydxy.github.io&#x2F;tools&#x2F;index.html</a><br>
 </div>
 
 	  
