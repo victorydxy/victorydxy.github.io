@@ -134,33 +134,6 @@
   </entry>
   
   <entry>
-    <title>IDEA使用相关</title>
-    <link href="https://victorydxy.github.io/2020/05/08/idea_use/"/>
-    <id>https://victorydxy.github.io/2020/05/08/idea_use/</id>
-    <published>2020-05-08T11:35:21.000Z</published>
-    <updated>2020-05-09T04:02:40.377Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure><p>在pom.xml添加上述文件然后 mvn clean</p><p>2.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;IDEA使用相关&quot;&gt;&lt;a href=&quot;#IDEA使用相关&quot; class=&quot;headerlink&quot; title=&quot;IDEA使用相关&quot;&gt;&lt;/a&gt;IDEA使用相关&lt;/h1&gt;&lt;p&gt;1.target目录没有更新&lt;/p&gt;
-&lt;figure class=&quot;highlight xm
-      
-    
-    </summary>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
     <title>docker fastdfs &amp; smb</title>
     <link href="https://victorydxy.github.io/2020/05/08/docker_fastdfs/"/>
     <id>https://victorydxy.github.io/2020/05/08/docker_fastdfs/</id>
@@ -190,20 +163,20 @@
   </entry>
   
   <entry>
-    <title>maven设置私服地址</title>
-    <link href="https://victorydxy.github.io/2020/05/08/maven_error/"/>
-    <id>https://victorydxy.github.io/2020/05/08/maven_error/</id>
+    <title>IDEA使用相关</title>
+    <link href="https://victorydxy.github.io/2020/05/08/idea_use/"/>
+    <id>https://victorydxy.github.io/2020/05/08/idea_use/</id>
     <published>2020-05-08T11:35:21.000Z</published>
-    <updated>2020-05-09T05:20:32.596Z</updated>
+    <updated>2020-05-09T04:02:40.377Z</updated>
     
-    <content type="html"><![CDATA[<p>在setting.xml、pom.xml中加入如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://182.254.158.159:9090/nexus/content/repositories/thirdparty<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure><p>在pom.xml添加上述文件然后 mvn clean</p><p>2.</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;在setting.xml、pom.xml中加入如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span clas
+        &lt;h1 id=&quot;IDEA使用相关&quot;&gt;&lt;a href=&quot;#IDEA使用相关&quot; class=&quot;headerlink&quot; title=&quot;IDEA使用相关&quot;&gt;&lt;/a&gt;IDEA使用相关&lt;/h1&gt;&lt;p&gt;1.target目录没有更新&lt;/p&gt;
+&lt;figure class=&quot;highlight xm
       
     
     </summary>
@@ -234,6 +207,33 @@
     &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;
     &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
     &amp;lt;name&amp;g
+      
+    
+    </summary>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>maven设置私服地址</title>
+    <link href="https://victorydxy.github.io/2020/05/08/maven_error/"/>
+    <id>https://victorydxy.github.io/2020/05/08/maven_error/</id>
+    <published>2020-05-08T11:35:21.000Z</published>
+    <updated>2020-05-09T05:20:32.596Z</updated>
+    
+    <content type="html"><![CDATA[<p>在setting.xml、pom.xml中加入如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://182.254.158.159:9090/nexus/content/repositories/thirdparty<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在setting.xml、pom.xml中加入如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span clas
       
     
     </summary>
