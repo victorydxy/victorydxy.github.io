@@ -5,7 +5,7 @@
   
 
 <head>
-	<title>IDEA使用相关 -  victorydeng</title>
+	<title>count.tags：spring -  victorydeng</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="description" content="my blog word">
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -379,95 +379,54 @@
 				<div class="main-content">
 					
 <div class="dearmsdan">
-	<div class="dearmsdan-post" id="dearmsdanPost">
-		<div class="dearmsdan-title">
-			<h1>IDEA使用相关</h1>
-		</div>
-	  <div id="post" class="dearmsdan-post-Statistics">
+	<section class="dearmsdan-posts">
+    
+    <div class="dearmsdan-post" id="dearmsdanIndex">
+		
+        <a href="/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/">
+            <div class="dearmsdan-title"> 
+				springboot动态配置：
+            </div>
+        </a>
+		
+        <article>
+            
+            <p>1.使用@Component注解注册成组件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册成一个组件</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigTwo</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;test.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.使用@ConfigurationProperties注解和启动类上@EnableConfigurationProperties({ConfigBean.class}) 这个还是使用spring的配置文件里的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;test&quot;)</span><br><span class="line">public class ConfigOne &#123;</span><br><span class="line">	</span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191211171354555.png" alt="image-20191211171354555"></p>
+<p>3.使用@EnableConfigurationProperties({TestConfigBean.class}) 和</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:person.properties"</span>)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigThree</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigThree<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">@<span class="title">RestController</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">Demo3Application2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigTwo configtwo;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	@Autowired</span></span><br><span class="line"><span class="comment">//	private ConfigOne configone;</span></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ConfigThree configthree;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Demo3Application2<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	</span></span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configone.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@GetMapping("/")</span></span><br><span class="line"><span class="comment">//	public String hello() &#123;</span></span><br><span class="line"><span class="comment">//		return configtwo.getName();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> configthree.getName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            
+        </article>
+        <div class="dearmsdan-post-Statistics">
             <a>2020年05月08日</a>
+            
+                <a class="category-link" href="/categories/java/">java</a>
+            
+            
+                <a class="tag-link" href="/tags/spring/" rel="tag">spring</a> <a class="tag-link" href="/tags/springboot/" rel="tag">springboot</a>
+            
+        </div>
 		
-		  <a class=" -link" href="/categories/tools/">tools</a>
-		
-		
-		  <a class=" -link" href="/tags/tools/" rel="tag">tools</a>
-		
-	  </div>
-		
-		
-<div id="modal" style="display:none">
-
-<aside id="article-toc" class="fixed-toc">
-    <div id="article-toc-inner">
-        <strong class="sidebar-title">目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IDEA使用相关"><span class="toc-text">IDEA使用相关</span></a></li></ol>
     </div>
-</aside>
-</div>
-
-
-		
-			<a href="#modal" class="second">
-				<div class="i">
-						<i style="font-size:20px" class="DearMsDanIconFont icon-sousuo">
-						<span style="font-size:0px"><br/>目<br/>录</span>
-						</i>
-				</div>
-			</a>
-
-
-
-
-<script>
-	$(".second .i").mouseover(function(){
-  $(".second .i span").css("font-size","18px");
-});
-	$(".second .i").mouseleave(function(){
-  $(".second .i span").css("font-size","0px");
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-	<script src="/resources/toc/jquery.pageslide.js"></script>
-		<div>
-			  <article>
-				<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在pom.xml添加上述文件然后 mvn clean</p>
-<p>2.</p>
-
-			  </article>
-		</div>
-		
-		
-	  
+    
+</section>
 	
-		
 
 
-<div class="copy">
-<i></i>
-<strong>victorydeng：</strong>
-	
-	 
-			victorydeng<br>
-        
-	
-<strong>本文链接：</strong>
-	<a href="https://victorydxy.github.io/2020/05/08/idea_use/" title="https:&#x2F;&#x2F;victorydxy.github.io&#x2F;2020&#x2F;05&#x2F;08&#x2F;idea_use&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;victorydxy.github.io&#x2F;2020&#x2F;05&#x2F;08&#x2F;idea_use&#x2F;</a><br>
-</div>
 
-	  
-	</div>
+<!--
+        prev_text: '<i class="iconfont">&#xe617;</i>',
+        next_text: '<i class="iconfont">&#xe627;</i>'
+-->
 </div>
     				
 					<!--<iframe src="a/index.html" class="iframe_mx uicss-cn"></iframe>-->
