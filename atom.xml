@@ -47,6 +47,35 @@
   </entry>
   
   <entry>
+    <title>rebbitmq学习笔记</title>
+    <link href="https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-05-09T11:35:21.000Z</published>
+    <updated>2020-05-11T07:31:40.712Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.centos7上安装rabbitmq</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1).docker 安装 </span><br><span class="line">yum install -y docker</span><br><span class="line">启动docker服务</span><br><span class="line">2).service docker start </span><br><span class="line">设置docker镜像源为阿里云</span><br><span class="line">3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json </span><br><span class="line">加入内容如下：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:  [&quot;https:&#x2F;&#x2F;halo2593.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">4).重新启动启动docker服务</span><br><span class="line">service docker restart </span><br><span class="line">5).拉取镜像</span><br><span class="line">docker pull rabbitmq:3.7.7-management</span><br><span class="line">6).创建容器</span><br><span class="line"> docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 --privileged&#x3D;true -v &#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST&#x3D;my_vhost  -e RABBITMQ_DEFAULT_USER&#x3D;admin -e RABBITMQ_DEFAULT_PASS&#x3D;admin 2888deb59dfc</span><br><span class="line">ps：</span><br><span class="line">-d 后台运行容器；</span><br><span class="line">--name 指定容器名；</span><br><span class="line">--privileged&#x3D;true 给予宿主机权限</span><br><span class="line">-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；</span><br><span class="line">-v 映射目录或文件；</span><br><span class="line">--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；</span><br><span class="line">-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</span><br><span class="line">2888deb59dfc是镜像id</span><br><span class="line">7).查看容器</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure><p>看到如下截图证明安装ok。</p><p><img src="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png" alt="image-20200511141441497"></p><p><img src="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png" alt="image-20200511141550773"></p><p>2.关于Mq的功能</p><p>  异步 解耦 限流</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1.centos7上安装rabbitmq&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+      
+    
+    </summary>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
+    
+    
+      <category term="java" scheme="https://victorydxy.github.io/tags/java/"/>
+    
+      <category term="mq" scheme="https://victorydxy.github.io/tags/mq/"/>
+    
+  </entry>
+  
+  <entry>
     <title>mongodb安装：</title>
     <link href="https://victorydxy.github.io/2020/05/09/mongodb%E5%AE%89%E8%A3%85/"/>
     <id>https://victorydxy.github.io/2020/05/09/mongodb%E5%AE%89%E8%A3%85/</id>
@@ -161,35 +190,6 @@
   </entry>
   
   <entry>
-    <title>docker fastdfs &amp; smb</title>
-    <link href="https://victorydxy.github.io/2020/05/08/docker_fastdfs/"/>
-    <id>https://victorydxy.github.io/2020/05/08/docker_fastdfs/</id>
-    <published>2020-05-08T11:35:21.000Z</published>
-    <updated>2020-05-09T04:02:09.116Z</updated>
-    
-    <content type="html"><![CDATA[<p>容器镜像加速：</p><p>sudo mkdir -p /etc/docker </p><p>sudo tee /etc/docker/daemon.json<br> &lt;&lt;-‘EOF’ </p><p>{ “registry-mirrors”: [“<a href="https://ij6khljp.mirror.aliyuncs.com/" target="_blank" rel="noopener">https://ij6khljp.mirror.aliyuncs.com</a>“] } </p><p>EOF</p><p> sudo systemctl daemon-reload </p><p>sudo systemctl restart docker</p><p>centos 下载docker：</p><p>yum -y install docker-io</p><p>centos6.5运行命令yum install docker.io，发生错误</p><p>No package docker available</p><p>yum没有找到docker包，更新epel第三方软件库，运行命令：</p><p>sudo yum install epel-release</p><p>之后运行：</p><p>sudo yum install docker-io</p><p>之后就可以愉快地安装了。</p><p>docker run -it –name samba -p 139:139 -p 445:445 -v /file/sparesManage/:/file/sparesManage/ -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “root;/file/sparesManage/;yes;no;no;all;none”</p><p> TRACKER_SERVER ： tracker服务端ip</p><p> TR_NGX_PORT ： tracker服务端上运行的nginx端口</p><p> ST_NGX_PORT ： storage服务端上运行的nginx端口</p><p> 62e919b7efc1 : 镜像id</p><p> t1 ： tracker服务端名称</p><p>拉取镜像：</p><p>docker image pull delron/fastdfs</p><p>查看镜像：</p><p>[root@iZh3cshm0xz7wjZ ~]# docker images</p><p>REPOSITORY           TAG         IMAGE ID      CREATED       SIZE</p><p>docker.io/morunchang/fastdfs  latest       a729ac95698a    18 months ago    460.1 MB </p><p>3.运行tracker：</p><p> docker run -itd –name tracker –net=host  -v /data/fastdfs/tracker_data:/fastdfs/tracker/data 0109554e5a05 sh tracker.sh</p><p>4.运行storage：</p><p>docker run -d –name storage -v /data/fastdfs/storage_data:/data/fast_data/data –net=host -e TRACKER_IP=10.134.82.116:22122 -e GROUP_NAME=group1 0109554e5a05 sh storage.sh</p><p>Nginx : /etc/nginx/conf/nginx.conf</p><p>fastdf配置文件位置：/etc/fdfs</p><p>使用nginx显示原来的文件名字：</p><p>修改Nginx配置文件:</p><p>location / GroupDFS1/M00 {</p><p>​      root /home/yuqing/FastDFS/data;</p><p>​        if ($request_filename ~* ^.*?.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){</p><p>​            add_header Content-Disposition: ‘attachment;’;</p><p>​        }</p><p>​        if ($arg_attname ~ “^(.*)”) {</p><p>​            add_header Content-Disposition “attachment;filename=$arg_attname”;</p><p>​        }</p><p>​      ngx_fastdfs_module;</p><p>​    }</p><p>SMB:</p><p>/file/sparesManage</p><p>docker run -it –name samba -p 139:139 -p 445:445 -v /file/sparesManage:/mount -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “www;/mount/;yes;no;no;all;none”</p><p>docker run –name samba -it -p 139:139 -p 445:445 -v /file/sparesManage:/file/sparesManage   -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “www;/mount/;yes;no;no;all;none”</p><p>docker run -itd –name nginx -p 8088:80 -v /file/sparesManage:/file/sparesManage nginx </p><p>apt-get install procps </p><p>VI:</p><p>apt-get update</p><p>apt-get install vim</p><p>Ps:</p><p>apt-get install procps</p><p>cd /etc/nginx/conf.d/ </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;容器镜像加速：&lt;/p&gt;
-&lt;p&gt;sudo mkdir -p /etc/docker &lt;/p&gt;
-&lt;p&gt;sudo tee /etc/docker/daemon.json&lt;br&gt; &amp;lt;&amp;lt;-‘EOF’ &lt;/p&gt;
-&lt;p&gt;{ “registry-mirrors”: [“&lt;a h
-      
-    
-    </summary>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
-    
-    
-      <category term="web" scheme="https://victorydxy.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
     <title>maven阿里云中央仓库</title>
     <link href="https://victorydxy.github.io/2020/05/08/maven_aliyun/"/>
     <id>https://victorydxy.github.io/2020/05/08/maven_aliyun/</id>
@@ -247,6 +247,62 @@
   </entry>
   
   <entry>
+    <title>tomcat配置之docBase：</title>
+    <link href="https://victorydxy.github.io/2020/05/08/tomcat_docbase/"/>
+    <id>https://victorydxy.github.io/2020/05/08/tomcat_docbase/</id>
+    <published>2020-05-08T11:35:21.000Z</published>
+    <updated>2020-05-09T05:27:15.812Z</updated>
+    
+    <content type="html"><![CDATA[<p>tomcat使用默认的80端口需要配置的docBase：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/"</span> <span class="attr">docBase</span>=<span class="string">"/data/soft/tomcat/webapps/jenkins"</span> <span class="attr">debug</span>=<span class="string">"0"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">crossContext</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;tomcat使用默认的80端口需要配置的docBase：&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cl
+      
+    
+    </summary>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker fastdfs &amp; smb</title>
+    <link href="https://victorydxy.github.io/2020/05/08/docker_fastdfs/"/>
+    <id>https://victorydxy.github.io/2020/05/08/docker_fastdfs/</id>
+    <published>2020-05-08T11:35:21.000Z</published>
+    <updated>2020-05-09T04:02:09.116Z</updated>
+    
+    <content type="html"><![CDATA[<p>容器镜像加速：</p><p>sudo mkdir -p /etc/docker </p><p>sudo tee /etc/docker/daemon.json<br> &lt;&lt;-‘EOF’ </p><p>{ “registry-mirrors”: [“<a href="https://ij6khljp.mirror.aliyuncs.com/" target="_blank" rel="noopener">https://ij6khljp.mirror.aliyuncs.com</a>“] } </p><p>EOF</p><p> sudo systemctl daemon-reload </p><p>sudo systemctl restart docker</p><p>centos 下载docker：</p><p>yum -y install docker-io</p><p>centos6.5运行命令yum install docker.io，发生错误</p><p>No package docker available</p><p>yum没有找到docker包，更新epel第三方软件库，运行命令：</p><p>sudo yum install epel-release</p><p>之后运行：</p><p>sudo yum install docker-io</p><p>之后就可以愉快地安装了。</p><p>docker run -it –name samba -p 139:139 -p 445:445 -v /file/sparesManage/:/file/sparesManage/ -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “root;/file/sparesManage/;yes;no;no;all;none”</p><p> TRACKER_SERVER ： tracker服务端ip</p><p> TR_NGX_PORT ： tracker服务端上运行的nginx端口</p><p> ST_NGX_PORT ： storage服务端上运行的nginx端口</p><p> 62e919b7efc1 : 镜像id</p><p> t1 ： tracker服务端名称</p><p>拉取镜像：</p><p>docker image pull delron/fastdfs</p><p>查看镜像：</p><p>[root@iZh3cshm0xz7wjZ ~]# docker images</p><p>REPOSITORY           TAG         IMAGE ID      CREATED       SIZE</p><p>docker.io/morunchang/fastdfs  latest       a729ac95698a    18 months ago    460.1 MB </p><p>3.运行tracker：</p><p> docker run -itd –name tracker –net=host  -v /data/fastdfs/tracker_data:/fastdfs/tracker/data 0109554e5a05 sh tracker.sh</p><p>4.运行storage：</p><p>docker run -d –name storage -v /data/fastdfs/storage_data:/data/fast_data/data –net=host -e TRACKER_IP=10.134.82.116:22122 -e GROUP_NAME=group1 0109554e5a05 sh storage.sh</p><p>Nginx : /etc/nginx/conf/nginx.conf</p><p>fastdf配置文件位置：/etc/fdfs</p><p>使用nginx显示原来的文件名字：</p><p>修改Nginx配置文件:</p><p>location / GroupDFS1/M00 {</p><p>​      root /home/yuqing/FastDFS/data;</p><p>​        if ($request_filename ~* ^.*?.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){</p><p>​            add_header Content-Disposition: ‘attachment;’;</p><p>​        }</p><p>​        if ($arg_attname ~ “^(.*)”) {</p><p>​            add_header Content-Disposition “attachment;filename=$arg_attname”;</p><p>​        }</p><p>​      ngx_fastdfs_module;</p><p>​    }</p><p>SMB:</p><p>/file/sparesManage</p><p>docker run -it –name samba -p 139:139 -p 445:445 -v /file/sparesManage:/mount -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “www;/mount/;yes;no;no;all;none”</p><p>docker run –name samba -it -p 139:139 -p 445:445 -v /file/sparesManage:/file/sparesManage   -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group -d dperson/samba -s “www;/mount/;yes;no;no;all;none”</p><p>docker run -itd –name nginx -p 8088:80 -v /file/sparesManage:/file/sparesManage nginx </p><p>apt-get install procps </p><p>VI:</p><p>apt-get update</p><p>apt-get install vim</p><p>Ps:</p><p>apt-get install procps</p><p>cd /etc/nginx/conf.d/ </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;容器镜像加速：&lt;/p&gt;
+&lt;p&gt;sudo mkdir -p /etc/docker &lt;/p&gt;
+&lt;p&gt;sudo tee /etc/docker/daemon.json&lt;br&gt; &amp;lt;&amp;lt;-‘EOF’ &lt;/p&gt;
+&lt;p&gt;{ “registry-mirrors”: [“&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
+    
+    
+      <category term="web" scheme="https://victorydxy.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>springboot动态配置：</title>
     <link href="https://victorydxy.github.io/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/"/>
     <id>https://victorydxy.github.io/2020/05/08/springboot_%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE/</id>
@@ -272,33 +328,6 @@
       <category term="spring" scheme="https://victorydxy.github.io/tags/spring/"/>
     
       <category term="springboot" scheme="https://victorydxy.github.io/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tomcat配置之docBase：</title>
-    <link href="https://victorydxy.github.io/2020/05/08/tomcat_docbase/"/>
-    <id>https://victorydxy.github.io/2020/05/08/tomcat_docbase/</id>
-    <published>2020-05-08T11:35:21.000Z</published>
-    <updated>2020-05-09T05:27:15.812Z</updated>
-    
-    <content type="html"><![CDATA[<p>tomcat使用默认的80端口需要配置的docBase：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/"</span> <span class="attr">docBase</span>=<span class="string">"/data/soft/tomcat/webapps/jenkins"</span> <span class="attr">debug</span>=<span class="string">"0"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">crossContext</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;tomcat使用默认的80端口需要配置的docBase：&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cl
-      
-    
-    </summary>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/tags/tools/"/>
     
   </entry>
   

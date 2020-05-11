@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://victorydxy.github.io">
-  <title>Tag: centos | victorydeng</title>
+  <title>rebbitmq学习笔记 | victorydeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="my blog word">
-<meta property="og:type" content="website">
-<meta property="og:title" content="victorydeng">
-<meta property="og:url" content="https://victorydxy.github.io/tags/centos/index.html">
+  <meta name="description" content="1.centos7上安装rabbitmq 1234567891011121314151617181920212223242526271).docker 安装 yum install -y docker启动docker服务2).service docker start 设置docker镜像源为阿里云3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json 加入内容如下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rebbitmq学习笔记">
+<meta property="og:url" content="https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="victorydeng">
-<meta property="og:description" content="my blog word">
+<meta property="og:description" content="1.centos7上安装rabbitmq 1234567891011121314151617181920212223242526271).docker 安装 yum install -y docker启动docker服务2).service docker start 设置docker镜像源为阿里云3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json 加入内容如下">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png">
+<meta property="article:published_time" content="2020-05-09T11:35:21.000Z">
+<meta property="article:modified_time" content="2020-05-11T07:31:40.712Z">
 <meta property="article:author" content="victorydeng">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="note">
-<meta property="article:tag" content="maven">
-<meta property="article:tag" content="db">
+<meta property="article:tag" content="mq">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png">
   
     <link rel="alternative" href="/atom.xml" title="victorydeng" type="application/atom+xml">
   
@@ -166,52 +169,89 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-rabbitmq学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/centos7/" class="archive-article-date">
-  	<time datetime="2020-05-09T11:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/centos7/">Centos7 相关命令</a>
+    <h1 class="article-title" itemprop="name">
+      rebbitmq学习笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-05-09T11:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.centos7上安装rabbitmq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1).docker 安装 </span><br><span class="line">yum install -y docker</span><br><span class="line">启动docker服务</span><br><span class="line">2).service docker start </span><br><span class="line">设置docker镜像源为阿里云</span><br><span class="line">3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json </span><br><span class="line">加入内容如下：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:  [&quot;https:&#x2F;&#x2F;halo2593.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">4).重新启动启动docker服务</span><br><span class="line">service docker restart </span><br><span class="line">5).拉取镜像</span><br><span class="line">docker pull rabbitmq:3.7.7-management</span><br><span class="line">6).创建容器</span><br><span class="line"> docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 --privileged&#x3D;true -v &#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST&#x3D;my_vhost  -e RABBITMQ_DEFAULT_USER&#x3D;admin -e RABBITMQ_DEFAULT_PASS&#x3D;admin 2888deb59dfc</span><br><span class="line">ps：</span><br><span class="line">-d 后台运行容器；</span><br><span class="line">--name 指定容器名；</span><br><span class="line">--privileged&#x3D;true 给予宿主机权限</span><br><span class="line">-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；</span><br><span class="line">-v 映射目录或文件；</span><br><span class="line">--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；</span><br><span class="line">-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</span><br><span class="line">2888deb59dfc是镜像id</span><br><span class="line">7).查看容器</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<p>看到如下截图证明安装ok。</p>
+<p><img src="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png" alt="image-20200511141441497"></p>
+<p><img src="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png" alt="image-20200511141550773"></p>
+<p>2.关于Mq的功能</p>
+<p>  异步 解耦 限流</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">liunx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mq</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -224,17 +264,129 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/09/centos7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Centos7 相关命令
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/05/09/mongodb%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mongodb安装：</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
+  owner: 'victorydxy',
+  repo: 'Gitment',
+  oauth: {
+    client_id: '4ba2b168aab6cf9b10f6',
+    client_secret: 'a901425a69d2957d592e2609ae3768087877778e',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -257,9 +409,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
