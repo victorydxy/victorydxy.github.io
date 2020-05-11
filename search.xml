@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>IDEA使用相关</title>
-    <url>/2020/05/08/idea_use/</url>
-    <content><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在pom.xml添加上述文件然后 mvn clean</p>
-<p>2.</p>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>tools</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos7 相关命令</title>
-    <url>/2020/05/09/centos7/</url>
-    <content><![CDATA[<p>Centos7 相关命令</p>
-<p>1.停止防火墙</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
-
-<p>2.wget 未找到</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>liunx</tag>
-        <tag>centos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>docker fastdfs &amp; smb</title>
     <url>/2020/05/08/docker_fastdfs/</url>
     <content><![CDATA[<p>容器镜像加速：</p>
@@ -105,12 +70,64 @@
       </tags>
   </entry>
   <entry>
+    <title>IDEA使用相关</title>
+    <url>/2020/05/08/idea_use/</url>
+    <content><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在pom.xml添加上述文件然后 mvn clean</p>
+<p>2.</p>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos7 相关命令</title>
+    <url>/2020/05/09/centos7/</url>
+    <content><![CDATA[<p>Centos7 相关命令</p>
+<p>1.停止防火墙</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p>2.wget 未找到</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>liunx</tag>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>maven设置私服地址</title>
     <url>/2020/05/08/maven_error/</url>
     <content><![CDATA[<p>在setting.xml、pom.xml中加入如下：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://182.254.158.159:9090/nexus/content/repositories/thirdparty<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>maven阿里云中央仓库</title>
+    <url>/2020/05/08/maven_aliyun/</url>
+    <content><![CDATA[<!-- 阿里云中央仓库 -->
+<pre><code>&lt;mirror&gt;
+    &lt;id&gt;nexus-aliyun&lt;/id&gt;
+    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;name&gt;Nexus aliyun&lt;/name&gt;
+    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+&lt;/mirror&gt;</code></pre>]]></content>
       <categories>
         <category>tools</category>
       </categories>
@@ -157,23 +174,6 @@
       <tags>
         <tag>java</tag>
         <tag>mq</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>maven阿里云中央仓库</title>
-    <url>/2020/05/08/maven_aliyun/</url>
-    <content><![CDATA[<!-- 阿里云中央仓库 -->
-<pre><code>&lt;mirror&gt;
-    &lt;id&gt;nexus-aliyun&lt;/id&gt;
-    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-    &lt;name&gt;Nexus aliyun&lt;/name&gt;
-    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
-&lt;/mirror&gt;</code></pre>]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
