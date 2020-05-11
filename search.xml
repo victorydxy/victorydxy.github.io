@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>maven设置私服地址</title>
+    <url>/2020/05/08/maven_error/</url>
+    <content><![CDATA[<p>在setting.xml、pom.xml中加入如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://182.254.158.159:9090/nexus/content/repositories/thirdparty<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos7 相关命令</title>
     <url>/2020/05/09/centos7/</url>
     <content><![CDATA[<p>Centos7 相关命令</p>
@@ -17,42 +31,6 @@
       <tags>
         <tag>liunx</tag>
         <tag>centos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>rebbitmq学习笔记</title>
-    <url>/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>1.centos7上安装rabbitmq</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1).docker 安装 </span><br><span class="line">yum install -y docker</span><br><span class="line">启动docker服务</span><br><span class="line">2).service docker start </span><br><span class="line">设置docker镜像源为阿里云</span><br><span class="line">3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json </span><br><span class="line">加入内容如下：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:  [&quot;https:&#x2F;&#x2F;halo2593.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">4).重新启动启动docker服务</span><br><span class="line">service docker restart </span><br><span class="line">5).拉取镜像</span><br><span class="line">docker pull rabbitmq:3.7.7-management</span><br><span class="line">6).创建容器</span><br><span class="line"> docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 --privileged&#x3D;true -v &#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST&#x3D;my_vhost  -e RABBITMQ_DEFAULT_USER&#x3D;admin -e RABBITMQ_DEFAULT_PASS&#x3D;admin 2888deb59dfc</span><br><span class="line">ps：</span><br><span class="line">-d 后台运行容器；</span><br><span class="line">--name 指定容器名；</span><br><span class="line">--privileged&#x3D;true 给予宿主机权限</span><br><span class="line">-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；</span><br><span class="line">-v 映射目录或文件；</span><br><span class="line">--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；</span><br><span class="line">-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</span><br><span class="line">2888deb59dfc是镜像id</span><br><span class="line">7).查看容器</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-
-<p>看到如下截图证明安装ok。</p>
-<p><img src="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png" alt="image-20200511141441497"></p>
-<p><img src="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png" alt="image-20200511141550773"></p>
-<p>2.关于Mq的功能</p>
-<p>  异步 解耦 限流</p>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>mq</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IDEA使用相关</title>
-    <url>/2020/05/08/idea_use/</url>
-    <content><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在pom.xml添加上述文件然后 mvn clean</p>
-<p>2.</p>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
@@ -94,11 +72,33 @@
       </tags>
   </entry>
   <entry>
-    <title>maven设置私服地址</title>
-    <url>/2020/05/08/maven_error/</url>
-    <content><![CDATA[<p>在setting.xml、pom.xml中加入如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://182.254.158.159:9090/nexus/content/repositories/thirdparty<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>rebbitmq学习笔记</title>
+    <url>/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>1.centos7上安装rabbitmq</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1).docker 安装 </span><br><span class="line">yum install -y docker</span><br><span class="line">启动docker服务</span><br><span class="line">2).service docker start </span><br><span class="line">设置docker镜像源为阿里云</span><br><span class="line">3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json </span><br><span class="line">加入内容如下：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:  [&quot;https:&#x2F;&#x2F;halo2593.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">4).重新启动启动docker服务</span><br><span class="line">service docker restart </span><br><span class="line">5).拉取镜像</span><br><span class="line">docker pull rabbitmq:3.7.7-management</span><br><span class="line">6).创建容器</span><br><span class="line"> docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 --privileged&#x3D;true -v &#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST&#x3D;my_vhost  -e RABBITMQ_DEFAULT_USER&#x3D;admin -e RABBITMQ_DEFAULT_PASS&#x3D;admin 2888deb59dfc</span><br><span class="line">ps：</span><br><span class="line">-d 后台运行容器；</span><br><span class="line">--name 指定容器名；</span><br><span class="line">--privileged&#x3D;true 给予宿主机权限</span><br><span class="line">-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；</span><br><span class="line">-v 映射目录或文件；</span><br><span class="line">--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；</span><br><span class="line">-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</span><br><span class="line">2888deb59dfc是镜像id</span><br><span class="line">7).查看容器</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
 
+<p>看到如下截图证明安装ok。</p>
+<p><img src="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png" alt="image-20200511141441497"></p>
+<p><img src="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png" alt="image-20200511141550773"></p>
+<p>2.关于Mq的功能</p>
+<p>  异步 解耦 限流</p>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>mq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA使用相关</title>
+    <url>/2020/05/08/idea_use/</url>
+    <content><![CDATA[<h1 id="IDEA使用相关"><a href="#IDEA使用相关" class="headerlink" title="IDEA使用相关"></a>IDEA使用相关</h1><p>1.target目录没有更新</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.*<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在pom.xml添加上述文件然后 mvn clean</p>
+<p>2.</p>
 ]]></content>
       <categories>
         <category>tools</category>
