@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>victorydeng</title>
   
-  <subtitle>闻道有先后,术业有专攻，如是而已</subtitle>
+  <subtitle>闻道有先后,术业有专攻,如是而已</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://victorydxy.github.io/"/>
@@ -102,20 +102,20 @@
   </entry>
   
   <entry>
-    <title>rebbitmq学习笔记</title>
-    <link href="https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <title>mongodb安装：</title>
+    <link href="https://victorydxy.github.io/2020/05/09/mongodb%E5%AE%89%E8%A3%85/"/>
+    <id>https://victorydxy.github.io/2020/05/09/mongodb%E5%AE%89%E8%A3%85/</id>
     <published>2020-05-09T11:35:21.000Z</published>
-    <updated>2020-05-11T07:31:40.712Z</updated>
+    <updated>2020-05-09T05:23:38.662Z</updated>
     
-    <content type="html"><![CDATA[<p>1.centos7上安装rabbitmq</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1).docker 安装 </span><br><span class="line">yum install -y docker</span><br><span class="line">启动docker服务</span><br><span class="line">2).service docker start </span><br><span class="line">设置docker镜像源为阿里云</span><br><span class="line">3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json </span><br><span class="line">加入内容如下：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:  [&quot;https:&#x2F;&#x2F;halo2593.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">4).重新启动启动docker服务</span><br><span class="line">service docker restart </span><br><span class="line">5).拉取镜像</span><br><span class="line">docker pull rabbitmq:3.7.7-management</span><br><span class="line">6).创建容器</span><br><span class="line"> docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 --privileged&#x3D;true -v &#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST&#x3D;my_vhost  -e RABBITMQ_DEFAULT_USER&#x3D;admin -e RABBITMQ_DEFAULT_PASS&#x3D;admin 2888deb59dfc</span><br><span class="line">ps：</span><br><span class="line">-d 后台运行容器；</span><br><span class="line">--name 指定容器名；</span><br><span class="line">--privileged&#x3D;true 给予宿主机权限</span><br><span class="line">-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；</span><br><span class="line">-v 映射目录或文件；</span><br><span class="line">--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；</span><br><span class="line">-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</span><br><span class="line">2888deb59dfc是镜像id</span><br><span class="line">7).查看容器</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure><p>看到如下截图证明安装ok。</p><p><img src="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png" alt="image-20200511141441497"></p><p><img src="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png" alt="image-20200511141550773"></p><p>2.关于Mq的功能</p><p>  异步 解耦 限流</p>]]></content>
+    <content type="html"><![CDATA[<p>1.mongodb安装：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Developer_tools\MongoDB\bin\mongod.exe --config "D:\Developer_tools\MongoDB\config\mongod.cfg" --install</span><br></pre></td></tr></table></figure><p>2、代码换行    // enter</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">回车</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;1.centos7上安装rabbitmq&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+        &lt;p&gt;1.mongodb安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;co
       
     
     </summary>
@@ -124,9 +124,7 @@
       <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
     
     
-      <category term="java" scheme="https://victorydxy.github.io/tags/java/"/>
-    
-      <category term="mq" scheme="https://victorydxy.github.io/tags/mq/"/>
+      <category term="db" scheme="https://victorydxy.github.io/tags/db/"/>
     
   </entry>
   
@@ -159,20 +157,20 @@
   </entry>
   
   <entry>
-    <title>mongodb安装：</title>
-    <link href="https://victorydxy.github.io/2020/05/09/mongodb%E5%AE%89%E8%A3%85/"/>
-    <id>https://victorydxy.github.io/2020/05/09/mongodb%E5%AE%89%E8%A3%85/</id>
+    <title>rebbitmq学习笔记</title>
+    <link href="https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://victorydxy.github.io/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2020-05-09T11:35:21.000Z</published>
-    <updated>2020-05-09T05:23:38.662Z</updated>
+    <updated>2020-05-11T07:31:40.712Z</updated>
     
-    <content type="html"><![CDATA[<p>1.mongodb安装：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Developer_tools\MongoDB\bin\mongod.exe --config "D:\Developer_tools\MongoDB\config\mongod.cfg" --install</span><br></pre></td></tr></table></figure><p>2、代码换行    // enter</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">回车</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>1.centos7上安装rabbitmq</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1).docker 安装 </span><br><span class="line">yum install -y docker</span><br><span class="line">启动docker服务</span><br><span class="line">2).service docker start </span><br><span class="line">设置docker镜像源为阿里云</span><br><span class="line">3).vi &#x2F;etc&#x2F;docker&#x2F;daemon.json </span><br><span class="line">加入内容如下：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:  [&quot;https:&#x2F;&#x2F;halo2593.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">4).重新启动启动docker服务</span><br><span class="line">service docker restart </span><br><span class="line">5).拉取镜像</span><br><span class="line">docker pull rabbitmq:3.7.7-management</span><br><span class="line">6).创建容器</span><br><span class="line"> docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 --privileged&#x3D;true -v &#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST&#x3D;my_vhost  -e RABBITMQ_DEFAULT_USER&#x3D;admin -e RABBITMQ_DEFAULT_PASS&#x3D;admin 2888deb59dfc</span><br><span class="line">ps：</span><br><span class="line">-d 后台运行容器；</span><br><span class="line">--name 指定容器名；</span><br><span class="line">--privileged&#x3D;true 给予宿主机权限</span><br><span class="line">-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；</span><br><span class="line">-v 映射目录或文件；</span><br><span class="line">--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；</span><br><span class="line">-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</span><br><span class="line">2888deb59dfc是镜像id</span><br><span class="line">7).查看容器</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure><p>看到如下截图证明安装ok。</p><p><img src="https://i.loli.net/2020/05/11/pRjcwOlFnsoa7Aq.png" alt="image-20200511141441497"></p><p><img src="https://i.loli.net/2020/05/11/jzeS7MWGQihknyU.png" alt="image-20200511141550773"></p><p>2.关于Mq的功能</p><p>  异步 解耦 限流</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;1.mongodb安装：&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;co
+        &lt;p&gt;1.centos7上安装rabbitmq&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
       
     
     </summary>
@@ -181,7 +179,9 @@
       <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
     
     
-      <category term="db" scheme="https://victorydxy.github.io/tags/db/"/>
+      <category term="mq" scheme="https://victorydxy.github.io/tags/mq/"/>
+    
+      <category term="java" scheme="https://victorydxy.github.io/tags/java/"/>
     
   </entry>
   
@@ -214,6 +214,36 @@
       <category term="java" scheme="https://victorydxy.github.io/tags/java/"/>
     
       <category term="设计模式" scheme="https://victorydxy.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>maven阿里云中央仓库</title>
+    <link href="https://victorydxy.github.io/2020/05/08/maven_aliyun/"/>
+    <id>https://victorydxy.github.io/2020/05/08/maven_aliyun/</id>
+    <published>2020-05-08T11:35:21.000Z</published>
+    <updated>2020-05-09T05:18:49.966Z</updated>
+    
+    <content type="html"><![CDATA[<!-- 阿里云中央仓库 --><pre><code>&lt;mirror&gt;    &lt;id&gt;nexus-aliyun&lt;/id&gt;    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    &lt;name&gt;Nexus aliyun&lt;/name&gt;    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;&lt;/mirror&gt;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- 阿里云中央仓库 --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;mirror&amp;gt;
+    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;
+    &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
+    &amp;lt;name&amp;g
+      
+    
+    </summary>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
+    
+    
+      <category term="tools" scheme="https://victorydxy.github.io/tags/tools/"/>
     
   </entry>
   
@@ -261,36 +291,6 @@
       
         &lt;h1 id=&quot;IDEA使用相关&quot;&gt;&lt;a href=&quot;#IDEA使用相关&quot; class=&quot;headerlink&quot; title=&quot;IDEA使用相关&quot;&gt;&lt;/a&gt;IDEA使用相关&lt;/h1&gt;&lt;p&gt;1.target目录没有更新&lt;/p&gt;
 &lt;figure class=&quot;highlight xm
-      
-    
-    </summary>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/categories/tools/"/>
-    
-    
-      <category term="tools" scheme="https://victorydxy.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>maven阿里云中央仓库</title>
-    <link href="https://victorydxy.github.io/2020/05/08/maven_aliyun/"/>
-    <id>https://victorydxy.github.io/2020/05/08/maven_aliyun/</id>
-    <published>2020-05-08T11:35:21.000Z</published>
-    <updated>2020-05-09T05:18:49.966Z</updated>
-    
-    <content type="html"><![CDATA[<!-- 阿里云中央仓库 --><pre><code>&lt;mirror&gt;    &lt;id&gt;nexus-aliyun&lt;/id&gt;    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    &lt;name&gt;Nexus aliyun&lt;/name&gt;    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;&lt;/mirror&gt;</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!-- 阿里云中央仓库 --&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;mirror&amp;gt;
-    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;
-    &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-    &amp;lt;name&amp;g
       
     
     </summary>
