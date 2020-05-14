@@ -6,23 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://victorydxy.github.io">
-  <title>设计原则 | victorydeng</title>
+  <title>spring V1 | victorydeng</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="学习设计原则，学习设计模式的基础。在实际开发过程中，并不是一定要求所有代码都遵循设计原则，我们要考虑人力、时间、成本、质量，不是刻意追求完美，要在适当的场景遵循设计原则，体现的是一种平衡取舍，帮助我们设计出更加优雅的代码结构。 课程大纲 第**1**章 Open-Closed Principle**开闭原则** 1.1 开闭原则定义： 开闭原则（Open-Closed Principle, OCP">
+  <meta name="description" content="手写spring的基本思路：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计原则">
-<meta property="og:url" content="https://victorydxy.github.io/2020/05/09/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/index.html">
+<meta property="og:title" content="spring V1">
+<meta property="og:url" content="https://victorydxy.github.io/2020/05/13/SpringV1/index.html">
 <meta property="og:site_name" content="victorydeng">
-<meta property="og:description" content="学习设计原则，学习设计模式的基础。在实际开发过程中，并不是一定要求所有代码都遵循设计原则，我们要考虑人力、时间、成本、质量，不是刻意追求完美，要在适当的场景遵循设计原则，体现的是一种平衡取舍，帮助我们设计出更加优雅的代码结构。 课程大纲 第**1**章 Open-Closed Principle**开闭原则** 1.1 开闭原则定义： 开闭原则（Open-Closed Principle, OCP">
+<meta property="og:description" content="手写spring的基本思路：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-09T11:35:21.000Z">
-<meta property="article:modified_time" content="2020-05-09T03:38:35.190Z">
+<meta property="og:image" content="https://i.loli.net/2020/05/13/kb5eGCjiK41J3cH.png">
+<meta property="article:published_time" content="2020-05-13T11:35:21.000Z">
+<meta property="article:modified_time" content="2020-05-13T15:01:14.115Z">
 <meta property="article:author" content="victorydeng">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/13/kb5eGCjiK41J3cH.png">
   
     <link rel="alternative" href="/atom.xml" title="victorydeng" type="application/atom+xml">
   
@@ -303,14 +304,14 @@
             
 
 
-<article id="post-设计原则" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-SpringV1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      设计原则
+      spring V1
     </h1>
   
 
@@ -322,8 +323,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/05/09/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="archive-article-date">
-        <time datetime="2020-05-09T11:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+<a href="/2020/05/13/SpringV1/" class="archive-article-date">
+        <time datetime="2020-05-13T11:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
 
   
@@ -337,7 +338,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2k字</span>
+      <span class="post-count">8字</span>
     </span>
   </span>
 
@@ -346,7 +347,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -363,70 +364,8 @@
 
       
 
-      <p>学习设计原则，学习设计模式的基础。在实际开发过程中，并不是一定要求所有代码都遵循设计原则，我们要考虑人力、时间、成本、质量，不是刻意追求完美，要在适当的场景遵循设计原则，体现的是一种平衡取舍，帮助我们设计出更加优雅的代码结构。</p>
-<p>课程大纲</p>
-<p><strong>第**</strong>1<strong>**章</strong> <strong>Open-Closed Principle**</strong>开闭原则**</p>
-<p>1.1 开闭原则定义：</p>
-<p>开闭原则（Open-Closed Principle, OCP）是指一个软件实体如类、模块和函数应该对扩展开放，</p>
-<p>对修改关闭。所谓的开闭，也正是对扩展和修改两个行为的一个原则。强调的是用抽象构建框架，用实</p>
-<p>现扩展细节。可以提高软件系统的可复用性及可维护性。开闭原则，是面向对象设计中最基础的设计原</p>
-<p>则。它指导我们如何建立稳定灵活的系统，例如：我们版本更新，我尽可能不修改源代码，但是可以增</p>
-<p>加新功能。</p>
-<p>在现实生活中对于开闭原则也有体现。比如，很多互联网公司都实行弹性制作息时间，规定每天工</p>
-<p>作 8 小时。意思就是说，对于每天工作 8 小时这个规定是关闭的，但是你什么时候来，什么时候走是开</p>
-<p>放的。早来早走，晚来晚走。</p>
-<p>1.2 开闭原则优点：</p>
-<p> 提高软件系统的可复用性和可维护性</p>
-<p>1.3 案例代码实战:</p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/openclosedprinciple" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/openclosedprinciple</a></p>
-<p>第2原则 Dependence Inversion Principle依赖倒置原则</p>
-<p>2.1 依赖倒置原则定义：</p>
-<p>高层模块不应该依赖底层模块，二者都应该依赖其抽象，抽象不该依赖细节，细节要依赖抽象，即我们要针对接口编程而不是对实现编程。</p>
-<p>2.2 依赖倒置原则优点：</p>
-<p>减少类间的耦合度，提高系统稳定性、可读性、可维护性，降低修改程序造成的风险。</p>
-<p>2.3 案例代码实战：</p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/dependenceinversionprinciple" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/dependenceinversionprinciple</a></p>
-<p>第3原则 Simple Responsibility Principle单一职责原则</p>
-<p>3.1 单一职责原则定义：</p>
-<p>单一职责是指不要存在多于一个导致类变更的原因。假设我们有一个 Class 负责两个职责，一旦发生需求变更，修改其中一个职责的逻辑代码，有可能会导致另一个职责的功能发生故障。这样一来，这个 Class 存在两个导致类变更的原因。如何解决这个问题呢？我们就要给两个职责分别用两个 Class 来实现，进行解耦。后期需求变更维护互不影响。这样的设计，可以降低类的复杂度，提高类的可读性，提高系统的可维护性，降低变更引起的风险。总体来说就是一个 Class/Interface/Method 只负责一项职责。</p>
-<p>3.2 单一职责原则优点：</p>
-<p>降低类的复杂度，提高可读性、可维修性，减少修改带来的风险。</p>
-<p>3.3 案例代码实战：</p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/simpleresponsibility" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/simpleresponsibility</a></p>
-<p>第4原则 Interface Segregation Principle接口隔离原则</p>
-<p>4.1 接口隔离原则定义：</p>
-<p>接口隔离原则是指用多个专门的接口，而不使用单一的总接口，客户端不应该依赖它不需要的接口。这个原则指导我们在设计接口时应当注意一下几点：1、一个类对一类的依赖应该建立在最小的接口之上。2、建立单一接口，不要建立庞大臃肿的接口。3、尽量细化接口，接口中的方法尽量少（不是越少越好，一定要适度）</p>
-<p>4.2 接口隔离原则优点：</p>
-<p>接口隔离原则符合我们常说的高内聚低耦合的设计思想，从而使得类具有很好的可读性、可扩展性和可维护性。</p>
-<p>4.3 案例代码实战：</p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/interfacesegregation" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/interfacesegregation</a></p>
-<p>第5原则 Law of Demeter 迪米特法则</p>
-<p>5.1 迪米特法则定义:</p>
-<p>迪米特原则是指一个对象应该对其他对象保持最少的了解，又叫最少知道原则，尽量降低类与类之间的耦合。迪米特原则主要强调只和朋友交流，不和陌生人说话。出现在成员变量、方法的输入、输出参数中的类都可以称之为成员朋友类，而出现在方法体内部的类不属于朋友类。</p>
-<p>5.2 迪米特优点:</p>
-<p>降低类间的耦合度</p>
-<p>5.3 案例代码实战:</p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/demeter" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/demeter</a></p>
-<p>第6原则 Liskov Substitution Principle里氏替换原则</p>
-<p>6.1 里氏替换原则定义：</p>
-<p>里氏替换原则是指如果对每一个类型为 T1 的对象 o1,都有类型为 T2 的对象 o2,使得以 T1 定义的所有程序 P 在所有的对象 o1 都替换成 o2 时，程序 P 的行为没有发生变化，那么类型 T2 是类型 T1 的子类型。定义看上去还是比较抽象，我们重新理解一下，可以理解为一个软件实体如果适用一个父类的话，那一定是适用于其子类，所有引用父类的地方必须能透明地使用其子类的对象，子类对象能够替换父类对象，而程序逻辑不变。根据这个理解，我们总结一下如下：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
-<p>引申含义：</p>
-<p>1、子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。</p>
-<p>2、子类中可以增加自己特有的方法。</p>
-<p>3、当子类的方法重载父类的方法时，方法的前置条件（即方法的输入/入参）要比父类方法的输入参数更宽松。</p>
-<p>4、当子类的方法实现父类的方法时（重写/重载或实现抽象方法），方法的后置条件（即方法的输出/返回值）要比父类更严格或相等。</p>
-<p>6.2 里氏替换原则优点：</p>
-<p>避免继承泛滥，增加程序的健壮性和兼容性，体现了开闭原则，降低变更时带来的风险。</p>
-<p>6.3 案例代码实战： </p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/liskovsutiution" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/liskovsutiution</a></p>
-<p>第7原则 Composite&amp;Aggregate Reuse Principle合成复用原则</p>
-<p>7.1 合成复用原则定义：</p>
-<p>合成复用原则是指尽量使用对象组合(has-a)/聚合(contanis-a)，而不是继承关系达到软件复用的目的。可以使系统更加灵活，降低类与类之间的耦合度，一个类的变化对其他类造成的影响相对较少。</p>
-<p>7.2 合成复用原则优点：</p>
-<p>系统更加灵活，降低类和类之间的耦合度，一个类的变化对其他类造成的影响相对较少。</p>
-<p>7.3 案例代码实战：</p>
-<p><a href="https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/compositeaggregatereuse" target="_blank" rel="noopener">https://gitee.com/victorydeng/my2020study/tree/master/src/main/java/com/dxy/yesas2020goals/study/partone/disignprinciple/compositeaggregatereuse</a></p>
-<p>总结：设计原则是前辈们多年开发设计软件过程中总结出来的经验，我们在开发过程中遇到问题可以从上面的几个方面去思考，当然啦有的原则直接有冲突和重叠，比如接口隔离和单一职责就有重叠的，我们没有必要刻意去使用。</p>
+      <p>手写spring的基本思路：</p>
+<p><img src="https://i.loli.net/2020/05/13/kb5eGCjiK41J3cH.png" alt="image-20200513224533229"></p>
 
     
 
@@ -494,16 +433,16 @@
     </li>
     <li>
       <strong>本文链接: </strong>
-      <a href="https://victorydxy.github.io/2020/05/09/设计原则/" title="设计原则" target="_blank">https://victorydxy.github.io/2020/05/09/设计原则/</a>
+      <a href="https://victorydxy.github.io/2020/05/13/SpringV1/" title="spring V1" target="_blank">https://victorydxy.github.io/2020/05/13/SpringV1/</a>
     </li>
 
     <li>
       <strong>发布时间: </strong>
-      2020年05月09日 - 11:35
+      2020年05月13日 - 11:35
     </li>
     <li>
       <strong>最后更新: </strong>
-      2020年05月09日 - 11:38
+      2020年05月13日 - 23:01
     </li>
 
     
@@ -545,11 +484,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -561,11 +496,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/javaEE//" class="article-tag-list-link color2">javaEE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaEE/设计模式//" class="article-tag-list-link color5">设计模式</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -620,7 +551,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://victorydxy.github.io/2020/05/09/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://victorydxy.github.io/2020/05/13/SpringV1/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -635,18 +566,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/05/09/rabbitmq%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          rebbitmq学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/08/maven_error/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">maven设置私服地址</div>
+    <a href="/2020/05/13/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">责任链模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
